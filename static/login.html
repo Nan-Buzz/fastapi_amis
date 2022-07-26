@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <title>amis demo</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <link rel="stylesheet" href="./static/sdk/antd.css" />
+    <link rel="stylesheet" href="./static/sdk/helper.css" />
+    <link rel="stylesheet" href="./static/sdk/iconfont.css" />
+    <style>
+      html,
+      body,
+      .app-wrapper {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root" class="app-wrapper"></div>
+    <script src="./static/sdk/sdk.js"></script>
+    <script src="./static/pages/vars.js"></script>
+    <script type="text/javascript">
+      (function () {
+        let amis = amisRequire('amis/embed');
+        // 通过替换下面这个配置来生成不同页面
+        let amisJSON = {
+          "type": "form",
+          "title": "登陆",
+          "body": [
+            {
+              "label": "用户名",
+              "type": "input-text",
+              "name": "username",
+              "id": "u:2ac0410c8cd9",
+              "value": "username",
+              "clearable": true
+            },
+            {
+              "type": "input-password",
+              "label": "密码",
+              "name": "password",
+              "id": "u:912a9c0f2b0f",
+              "showCounter": false,
+              "validations": {
+              },
+              "validationErrors": {
+              },
+              "hidden": false,
+              "labelRemark": {
+                "icon": "fa fa-question-circle",
+                "trigger": [
+                  "hover"
+                ],
+                "className": "Remark--warning",
+                "placement": "top"
+              }
+            }
+          ],
+          "api": {
+            "method": "get",
+            "url": baseUrl+"/api/login",
+            "dataType": "form-data",
+            
+          },
+          "id": "u:fa1286b4efe3",
+          "affixFooter": false,
+          "panelClassName": "Panel--default",
+          "visible": true,
+          "redirect": baseUrl+"/index"
+        };
+        let amisScoped = amis.embed('#root', amisJSON, {},{theme: 'antd'});
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+{
+  "status": 0,
+  "msg": "",
+  "data": {
+    "pages": [
+      {
+        "label": "Home",
+        "url": "/",
+        "redirect": "/admin"
+      },
+      {
+        "children": [
+          {
+            "label": "动态改页面",
+            "schemaApi": "jsonp:/static/pages/welcome.js?callback=jsonpCallback",
+            "url" : "/change"
+          },
+          {
+            "label": "用户管理",
+            "schemaApi": "jsonp:/static/pages/adminuser.js?callback=jsonpCallback",
+            "url" : "/admin"
+          },
+          {
+            "label": "测试页面",
+            "schemaApi": "jsonp:/static/pages/change.js?callback=jsonpCallback",
+            "url" : "/test"
+          }
+        ]
+      }
+    ]
+  }
+}
